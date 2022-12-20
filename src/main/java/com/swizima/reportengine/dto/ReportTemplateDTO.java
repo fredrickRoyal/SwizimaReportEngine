@@ -1,35 +1,36 @@
-package com.swizima.reportengine.models;
+package com.swizima.reportengine.dto;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
-import com.swizima.reportengine.enums.Status;
- 
-import jakarta.persistence.Entity;
-
-@Entity(name = "ReportTemplates")
-public class ReportTemplate extends ParentEntity {
+public class ReportTemplateDTO implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
- 
-	private String fileName; 
+	
+	private String id;
+	private String fileName;
 	private String fileSize;
-	private LocalDateTime publishedDate;
+	private String publishedDate;
 	private String publishedBy;
-
-	 
 	private String description;
-
-	private Status publishStatus;
+	private String publishStatus;
 	private String folder;
 	private String refId;
 	private String filePath;
 	private String fileType;
 
-	public ReportTemplate() {
+	public ReportTemplateDTO() {
 
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getFileName() {
@@ -48,11 +49,11 @@ public class ReportTemplate extends ParentEntity {
 		this.fileSize = fileSize;
 	}
 
-	public LocalDateTime getPublishedDate() {
+	public String getPublishedDate() {
 		return publishedDate;
 	}
 
-	public void setPublishedDate(LocalDateTime publishedDate) {
+	public void setPublishedDate(String publishedDate) {
 		this.publishedDate = publishedDate;
 	}
 
@@ -72,11 +73,11 @@ public class ReportTemplate extends ParentEntity {
 		this.description = description;
 	}
 
-	public Status getPublishStatus() {
+	public String getPublishStatus() {
 		return publishStatus;
 	}
 
-	public void setPublishStatus(Status publishStatus) {
+	public void setPublishStatus(String publishStatus) {
 		this.publishStatus = publishStatus;
 	}
 

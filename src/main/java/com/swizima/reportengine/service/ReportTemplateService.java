@@ -32,7 +32,7 @@ public class ReportTemplateService {
 		return null;
 	}
 
-	public List<ReportTemplate> find(ReportTemplate reportTemplate) {
+	public List<ReportTemplate> find() {
 
 		List<ReportTemplate> list = new ArrayList<ReportTemplate>();
 
@@ -42,7 +42,7 @@ public class ReportTemplateService {
 
 			templates.forEach(template -> {
 
-				list.add(reportTemplate);
+				list.add(template);
 			});
 
 		} catch (Exception ex) {
