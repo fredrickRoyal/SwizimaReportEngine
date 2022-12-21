@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,7 +48,7 @@ public class ReportTemplateController {
 	private ReportTemplateService reportTemplateService;
 
 	@PostMapping(value = "/templates/upload")
-	public SystemResponseDTO<String> uploadTemplate(@RequestParam("file") MultipartFile file)
+	public SystemResponseDTO<String> uploadTemplate(@RequestParam("file") MultipartFile file,@RequestParam("description") String description )
 			throws ServletException, IOException {
 
 		logger.info("Uploading Templates");
@@ -67,7 +68,7 @@ public class ReportTemplateController {
 			documentUpload.setCreatedDate(LocalDateTime.now());
 			documentUpload.setPublishedDate(LocalDateTime.now());
 			documentUpload.setUpdatedDate(LocalDateTime.now());
-			// documentUpload.setDescription(docType);
+			documentUpload.setDescription(description);
 			documentUpload.setFileName(fileName);
 			documentUpload.setFilePath(fileStorageProperties.getUploadDir() + refId + "/" + fileName);
 			documentUpload.setFileSize(getFileSize(file.getSize()));
@@ -180,7 +181,7 @@ public class ReportTemplateController {
 					reportTemplate.getPublishedDate().format(new DateTimeFormatterBuilder().toFormatter()));
 
 			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/download/")
-					.path(reportTemplate.getFileName()).toUriString();
+					.path(reportTemplate.getFileName()).path("/"+reportTemplate.getRefId()).toUriString();
 
 			dto.setFilePath(fileDownloadUri);
 
