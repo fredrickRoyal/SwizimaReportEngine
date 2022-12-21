@@ -1,0 +1,13 @@
+com\swizima\reportengine\repository\ReportTemplateRepository.class
+com\swizima\reportengine\exception\FileStorageException.class
+com\swizima\reportengine\controller\ReportTemplateController.class
+com\swizima\reportengine\models\ReportTemplate.class
+com\swizima\reportengine\exception\MyFileNotFoundException.class
+com\swizima\reportengine\ReportEngineApplication.class
+com\swizima\reportengine\models\ParentEntity.class
+com\swizima\reportengine\service\FileStorageProperties.class
+com\swizima\reportengine\service\ReportTemplateService.class
+com\swizima\reportengine\enums\Status.class
+com\swizima\reportengine\service\FileStorageService.class
+com\swizima\reportengine\security\WebConfig.class
+com\swizima\reportengine\dto\SystemFeedback.class
