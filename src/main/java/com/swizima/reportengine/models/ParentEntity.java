@@ -3,13 +3,13 @@ package com.swizima.reportengine.models;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 import org.hibernate.annotations.GenericGenerator;
 
 import com.swizima.reportengine.enums.Status;
-
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class ParentEntity implements Serializable {

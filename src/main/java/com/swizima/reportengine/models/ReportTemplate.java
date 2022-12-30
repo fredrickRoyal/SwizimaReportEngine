@@ -3,8 +3,8 @@ package com.swizima.reportengine.models;
 import java.time.LocalDateTime;
 
 import com.swizima.reportengine.enums.Status;
- 
-import jakarta.persistence.Entity;
+
+import javax.persistence.*;
 
 @Entity(name = "ReportTemplates")
 public class ReportTemplate extends ParentEntity {

@@ -6,6 +6,9 @@ import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +32,7 @@ import com.swizima.reportengine.models.ReportTemplate;
 import com.swizima.reportengine.service.FileStorageProperties;
 import com.swizima.reportengine.service.FileStorageService;
 import com.swizima.reportengine.service.ReportTemplateService;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
+ 
 
 @RestController
 public class ReportTemplateController {
@@ -112,6 +113,8 @@ public class ReportTemplateController {
 	@GetMapping("/templates/all")
 	public SystemResponseDTO<List<ReportTemplateDTO>> getAllTemplates() {
 
+		logger.info("locading Templates");
+		
 		SystemResponseDTO<List<ReportTemplateDTO>> dataResponse = new SystemResponseDTO<List<ReportTemplateDTO>>();
 
 		List<ReportTemplateDTO> list = new ArrayList<ReportTemplateDTO>();
